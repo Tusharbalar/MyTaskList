@@ -9,21 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var task_component_1 = require('./components/tasks/task.component');
-var AppModule = (function () {
-    function AppModule() {
+var TaskComponent = (function () {
+    function TaskComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, task_component_1.TaskComponent],
-            bootstrap: [app_component_1.AppComponent]
+    TaskComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'task.component.html',
+            styleUrls: ['task.component.css'],
+            selector: 'task',
+            moduleId: module.id
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], TaskComponent);
+    return TaskComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.TaskComponent = TaskComponent;
+//# sourceMappingURL=task.component.js.map

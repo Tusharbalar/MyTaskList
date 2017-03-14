@@ -1,0 +1,1 @@
+{"version":3,"file":"task.component.js","sourceRoot":"","sources":["task.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAA0B,eAAe,CAAC,CAAA;AAQ1C;IAAA;IAEA,CAAC;IARD;QAAC,gBAAS,CAAC;YACT,WAAW,EAAE,qBAAqB;YAClC,SAAS,EAAE,CAAC,oBAAoB,CAAC;YACjC,QAAQ,EAAE,MAAM;YAChB,QAAQ,EAAE,MAAM,CAAC,EAAE;SACpB,CAAC;;qBAAA;IAGF,oBAAC;AAAD,CAAC,AAFD,IAEC;AAFY,qBAAa,gBAEzB,CAAA"}
