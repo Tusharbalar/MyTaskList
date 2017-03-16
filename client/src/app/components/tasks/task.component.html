@@ -5,13 +5,17 @@
 </form>
 
 <div class="task-list">
-  <div class="col-md-1 col-sm-1 col-xs-1">
-    <input type="checkbox">
-  </div>
-  <div class="col-md-7 col-sm-4 col-xs-4">
-    Some Task
-  </div>
-  <div class="col-md-4 col-sm-3 col-xs-3">
-    <input type="button" value="Delete" class="btn btn-danger">
+  <div *ngFor="let task of tasks">
+    <div class="row">
+      <div class="col-md-1 col-sm-2 col-xs-1">
+        <input type="checkbox">
+      </div>
+      <div class="col-md-7 col-sm-3 col-xs-4">
+        {{task.title}}
+      </div>
+      <div class="col-md-4 col-sm-3 col-xs-3">
+        <input type="button" value="Delete" class="btn btn-danger">
+      </div>
+    </div>
   </div>
 </div>

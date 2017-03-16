@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
+import { Task } from './task';
 
 @Component({
   moduleId: module.id,
@@ -10,13 +11,16 @@ import { TaskService } from '../../services/task.service';
 
 export class TaskComponent implements OnInit {
 
+  public tasks: Task[];
+
   constructor(private taskService: TaskService) {
     
   }
 
   ngOnInit() {
-    this.taskService.getTasks().subscribe((res) => {
-      console.log("DSDSDS", res)
+    this.taskService.getTasks().subscribe((tasks) => {
+      console.log("DSDSDS", tasks);
+      this.tasks = tasks;
     })
   }
 

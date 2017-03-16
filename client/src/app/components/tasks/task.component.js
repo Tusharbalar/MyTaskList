@@ -15,8 +15,10 @@ var TaskComponent = (function () {
         this.taskService = taskService;
     }
     TaskComponent.prototype.ngOnInit = function () {
-        this.taskService.getTasks().subscribe(function (res) {
-            console.log("DSDSDS", res);
+        var _this = this;
+        this.taskService.getTasks().subscribe(function (tasks) {
+            console.log("DSDSDS", tasks);
+            _this.tasks = tasks;
         });
     };
     TaskComponent = __decorate([
