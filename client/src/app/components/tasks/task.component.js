@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var task_service_1 = require('../../services/task.service');
 var TaskComponent = (function () {
-    function TaskComponent() {
+    function TaskComponent(taskService) {
+        this.taskService = taskService;
     }
     TaskComponent = __decorate([
         core_1.Component({
@@ -19,7 +21,7 @@ var TaskComponent = (function () {
             selector: 'tasks',
             moduleId: module.id
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [task_service_1.TaskService])
     ], TaskComponent);
     return TaskComponent;
 }());
