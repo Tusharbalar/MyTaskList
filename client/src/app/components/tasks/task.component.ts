@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 
 @Component({
-  templateUrl: 'task.component.html',
-  styleUrls: ['task.component.css'],
+  moduleId: module.id,
   selector: 'tasks',
-  moduleId: module.id
+  templateUrl: 'task.component.html',
+  styleUrls: ['task.component.css']
 })
 
-export class TaskComponent {
+export class TaskComponent implements OnInit {
 
   constructor(private taskService: TaskService) {
     
+  }
+
+  ngOnInit() {
+    this.taskService.getTasks().subscribe((res) => {
+      console.log("DSDSDS", res)
+    })
   }
 
 }

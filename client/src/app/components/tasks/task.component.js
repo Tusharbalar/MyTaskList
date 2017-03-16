@@ -14,12 +14,17 @@ var TaskComponent = (function () {
     function TaskComponent(taskService) {
         this.taskService = taskService;
     }
+    TaskComponent.prototype.ngOnInit = function () {
+        this.taskService.getTasks().subscribe(function (res) {
+            console.log("DSDSDS", res);
+        });
+    };
     TaskComponent = __decorate([
         core_1.Component({
-            templateUrl: 'task.component.html',
-            styleUrls: ['task.component.css'],
+            moduleId: module.id,
             selector: 'tasks',
-            moduleId: module.id
+            templateUrl: 'task.component.html',
+            styleUrls: ['task.component.css']
         }), 
         __metadata('design:paramtypes', [task_service_1.TaskService])
     ], TaskComponent);
