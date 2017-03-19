@@ -12,6 +12,7 @@ import { Task } from './task';
 export class TaskComponent implements OnInit {
 
   public tasks: Task[];
+  public title: string;
 
   constructor(private taskService: TaskService) {
     
@@ -21,6 +22,18 @@ export class TaskComponent implements OnInit {
     this.taskService.getTasks().subscribe((tasks) => {
       console.log("DSDSDS", tasks);
       this.tasks = tasks;
+    })
+  }
+
+  addTask(event:any) {
+    event.preventDefault();
+    var newTask = {
+      title: this.title,
+      isDone: false
+    }
+    this.taskService.addTask(newTask).subscribe((task) => {
+      this.tasks.push(task);
+      this.title = "";
     })
   }
 

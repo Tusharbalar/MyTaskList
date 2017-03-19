@@ -10,7 +10,16 @@ export class TaskService {
   }
 
   getTasks() {
-    return this.http.get('http://localhost:3000/api/tasks')
+    return this.http.get('/api/tasks')
                     .map((res) => res.json());
   }
+
+  addTask(newTask:any) {
+    var headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    console.log("AAAA", newTask)
+    return this.http.post("http://localhost:3000/api/task", newTask)
+                    .map(res => res.json())
+  }
+
 }

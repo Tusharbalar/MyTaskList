@@ -21,6 +21,18 @@ var TaskComponent = (function () {
             _this.tasks = tasks;
         });
     };
+    TaskComponent.prototype.addTask = function (event) {
+        var _this = this;
+        event.preventDefault();
+        var newTask = {
+            title: this.title,
+            isDone: false
+        };
+        this.taskService.addTask(newTask).subscribe(function (task) {
+            _this.tasks.push(task);
+            _this.title = "";
+        });
+    };
     TaskComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

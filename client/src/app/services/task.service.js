@@ -17,7 +17,14 @@ var TaskService = (function () {
         console.log("Task initialized...");
     }
     TaskService.prototype.getTasks = function () {
-        return this.http.get('http://localhost:3000/api/tasks')
+        return this.http.get('/api/tasks')
+            .map(function (res) { return res.json(); });
+    };
+    TaskService.prototype.addTask = function (newTask) {
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        console.log("AAAA", newTask);
+        return this.http.post("http://localhost:3000/api/task", newTask)
             .map(function (res) { return res.json(); });
     };
     TaskService = __decorate([
