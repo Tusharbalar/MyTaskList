@@ -34,7 +34,7 @@ router.post("/task", function(req, res, next) {
     });
     console.log("SASASASASASA")
   } else {
-    db.task.save(task, function(err, task) {
+    db.tasks.save(task, function(err, task) {
       if (err) {
         console.log("Err",err)
         res.send(err);
