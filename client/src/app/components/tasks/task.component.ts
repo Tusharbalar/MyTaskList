@@ -37,4 +37,29 @@ export class TaskComponent implements OnInit {
     })
   }
 
+  deleteTask(taskId: any) {
+    var tasks = this.tasks;
+    console.log(taskId)
+    this.taskService.deleteTask(taskId).subscribe((res) => {
+      if (res.n === 1) {
+        for(var i = 0; i < tasks.length; i++) {
+          if (tasks[i]._id === taskId) {
+            tasks.splice(i, 1);
+          }
+        }
+      }
+    })
+  }
+
+  updateStatus(task:any) {
+    var _task = {
+      _id: task._id,
+      title: task.title,
+      isDone: !task.isDone
+    };
+    this.taskService.updateStatus(_task).subscribe((res) => {
+      task.isDone = !task.isDone;
+    })
+  }
+
 }

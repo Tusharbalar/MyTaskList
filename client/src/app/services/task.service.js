@@ -23,8 +23,17 @@ var TaskService = (function () {
     TaskService.prototype.addTask = function (newTask) {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
-        console.log("AAAA", newTask);
-        return this.http.post("http://localhost:3000/api/task", newTask)
+        return this.http.post("/api/tasks", newTask, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    TaskService.prototype.deleteTask = function (taskId) {
+        return this.http.delete("/api/tasks/" + taskId)
+            .map(function (res) { return res.json(); });
+    };
+    TaskService.prototype.updateStatus = function (task) {
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this.http.put("/api/tasks/" + task._id, JSON.stringify(task), { headers: headers })
             .map(function (res) { return res.json(); });
     };
     TaskService = __decorate([

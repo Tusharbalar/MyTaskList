@@ -33,6 +33,29 @@ var TaskComponent = (function () {
             _this.title = "";
         });
     };
+    TaskComponent.prototype.deleteTask = function (taskId) {
+        var tasks = this.tasks;
+        console.log(taskId);
+        this.taskService.deleteTask(taskId).subscribe(function (res) {
+            if (res.n === 1) {
+                for (var i = 0; i < tasks.length; i++) {
+                    if (tasks[i]._id === taskId) {
+                        tasks.splice(i, 1);
+                    }
+                }
+            }
+        });
+    };
+    TaskComponent.prototype.updateStatus = function (task) {
+        var _task = {
+            _id: task._id,
+            title: task.title,
+            isDone: !task.isDone
+        };
+        this.taskService.updateStatus(_task).subscribe(function (res) {
+            task.isDone = !task.isDone;
+        });
+    };
     TaskComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
